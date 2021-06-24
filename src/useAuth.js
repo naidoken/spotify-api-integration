@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default function useAuth(code) {
@@ -11,6 +11,8 @@ export default function useAuth(code) {
             code,
         }).then(res => {
             console.log(res.data)
+        }).catch(() => {
+            window.location = "/"
         })
     }, [code])
 }
